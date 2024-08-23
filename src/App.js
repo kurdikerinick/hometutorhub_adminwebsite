@@ -1,24 +1,62 @@
-import logo from './logo.svg';
-import './App.css';
-
+// src/App.js
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './components/navigation/navbar';
+import SuperAdminLogin from './components/superadmin/slogin';
+import BranchAdminRegistration from './components/superadmin/regadmin';
+import RegisteredBranchAdmins from './components/superadmin/registeredbranchadmins';
+import BranchAdminLogin from './components/branchadmin/blogin';
+import Branchadminhome from './components/branchadmin/branchadminhome';
+import Tutorregister from './components/branchadmin/tutorregister';
+import StudentRegistration from './components/branchadmin/studentregister';
+import Assign from './components/branchadmin/assignstudents';
+import Home from './components/navigation/navbar';
+// import StudentLogin from './components/students/studlogin';
+import SuperAdminSidebar from './components/superadmin/sdashboard';
+import Enquires from './components/branchadmin/enquires';
+import EnquiresSuperAdmin from './components/superadmin/enquires';
+// import Jointutor from './components/navigation/joinastutor';
+// import Findtutor from './components/navigation/findtutor';
+// import Joinstudent from './components/navigation/joinstudent';
+// import MonitorTests from './components/students/account';
+// import TopNav from './components/students/home';
+// import Fees from './components/students/fees';
+// import TutorLogin from './components/tutors/tlogin';
+import Payments from './components/branchadmin/payments';
+import Students from './components/branchadmin/accounts';
+// import TutorHome from './components/tutors/home';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Routes>
+         <Route path='/' element={<Home />} />
+          <Route path='/navbar' element={<Navbar />} />
+          <Route path='/slogin' element={<SuperAdminLogin/>} />
+          <Route path='/superadminsidebar' element={<SuperAdminSidebar/>} />
+          {/* <Route path='/studentlogin' element={<StudentLogin/>}/> */}
+         <Route path='/branchreg' element={<BranchAdminRegistration />} />
+         <Route path='/registeredbranchadmin' element={<RegisteredBranchAdmins />} />
+         <Route path='/blogin' element={<BranchAdminLogin />} />
+         <Route path='/branchadminhome' element={<Branchadminhome />} />
+         <Route path='/tutorregister' element={<Tutorregister /> }/>
+         <Route path='/studentregister'element={<StudentRegistration/>}/>
+         <Route path='/assign' element={<Assign />} />
+       <Route path='/enquires' element={<Enquires/>}/>
+       <Route path='/enquiressuperadmin' element={<EnquiresSuperAdmin/>}/>
+       {/* <Route path='/jointutor' element={<Jointutor/>}/> */}
+       {/* <Route path='/findtutor' element={<Findtutor/>}/> */}
+       {/* <Route path='/joinstudent' element={<Joinstudent/>}/> */}
+       {/* <Route path="/monitortest/:studentId" element={<MonitorTests />} /> */}
+       {/* <Route path="/nav/:studentId" element={<TopNav/>}/> */}
+       {/* <Route path='/fees' element={<Fees/>}/> */}
+       {/* <Route path='/tutorlogin' element={<TutorLogin/>}/> */}
+       <Route path='/payments' element={<Payments/>}/>
+       <Route path='/students' element={<Students/>}/>
+       {/* <Route path='/tutorhome' element={<TutorHome/>}/> */}
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
